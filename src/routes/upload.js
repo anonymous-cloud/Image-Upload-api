@@ -8,6 +8,7 @@ const upload = multer({ storage: multer.memoryStorage() });
 
 router.post('/upload-product-image', upload.single('image'), async (req, res) => {
   try {
+    console.log("jhjhjhjhjh")
     if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
 
     const { originalName, url } = await uploadToS3(req.file);
